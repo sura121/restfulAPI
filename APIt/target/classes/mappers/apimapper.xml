@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.seonbeen.mappers.apimapper">
+  
+  	<insert id="apiInsert" parameterType="BoardVO" useGeneratedKeys="true" keyProperty="bno" keyColumn="bno">
+  	insert into TBL_BOARD (title, writer, content) values(#{title}, #{writer}, #{content})
+  	</insert>
+  	
+  	<select id="apiRead" resultType="BoardVO">
+  	select * from TBL_BOARD where bno = #{bno}
+  	</select>
+  	
+  	<select id="apiList"  resultType="BoardVO">
+  	select * from TBL_BOARD where bno > 0 order by bno desc;
+  	</select>
+  	
+  	<update id="apiPatch" parameterType="BoardVO">
+  	update TBL_BOARD set title=#{title}, content=#{content} where bno = #{bno}
+  	</update>
+  	
+  	<delete id="apiDelete">
+  	delete from TBL_BOARD where bno = #{bno}
+  	</delete>
+  	
+  	<select id="latestBoard" resultType="int">
+  	select LAST_INSERT_ID();
+  	</select>
+  	
+  	<insert id="apiMember" parameterType="MemberVO" useGeneratedKeys="true" keyProperty="mno" keyColumn="mno">
+  	insert into TBL_MEMBER (name, id, password) values (#{name}, #{id}, #{password})
+  	</insert>
+  	
+  	<select id="memberList" resultType="MemberVO">
+	select * from TBL_MEMBER where mno = #{mno}  	
+  	</select>
+  </mapper>

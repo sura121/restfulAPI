@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.seonbeen.mappers.replymapper">
+  
+  <insert id="replyRegi" parameterType="ReplyVO" useGeneratedKeys="true" keyProperty="rno" keyColumn="rno" >
+  insert into TBL_REPLY (rcontent, rwriter, bno) values (#{rcontent}, #{rwriter}, #{bno})
+  </insert>  
+  
+  <update id="modifyReply">
+  update TBL_REPLY set rcontent=#{rcontent} where rno=#{rno}
+  </update>
+  
+  <delete id="deleteReply">
+  delete from TBL_REPLY where rno = #{rno}
+  </delete>
+  
+  <select id="readReply" resultType="ReplyVO">
+  select * from TBL_REPLY where rno = #{rno}
+  </select>
+  </mapper>
