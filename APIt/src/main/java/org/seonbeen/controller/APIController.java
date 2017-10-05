@@ -119,6 +119,7 @@ public class APIController {
 		
 	}
 	
+<<<<<<< HEAD
 	/*@RequestMapping(value="/naver", method=RequestMethod.POST)
 	public void naverAPI(){
 		 String clientId = "seGPkRi4xxX5rP3GB0Aa";//애플리케이션 클라이언트 아이디값";
@@ -162,6 +163,8 @@ public class APIController {
 	    }
 */	
 	
+=======
+>>>>>>> refs/remotes/origin/master
 	
 	
 }
